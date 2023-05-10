@@ -2,9 +2,35 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: black;
+  color: #fafafa;
 }
 
 body,
 html {
   font-family: "IBM Plex Sans", sans-serif;
+}
+
+.box {
+  background-color: white;
+  flex-grow: 1;
+  border: 1px solid black;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.container {
+  width: 1140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.box-row {
+  display: flex;
 }
