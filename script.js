@@ -1,5 +1,8 @@
+let button = document.getElementById("button-reset");
+let container = document.getElementById("container-sketch");
+let containerMain = document.getElementById("container-main");
+
 function generateGrid() {
-  const container = document.getElementById("container-sketch");
   for (let i = 0; i < 16; i++) {
     const boxRow = document.createElement("div");
     container.appendChild(boxRow);
@@ -20,6 +23,32 @@ function changeColor(color) {
     });
   });
 }
+
+function resetGrid() {
+  container.remove();
+  containerMain.insertBefore(container, button);
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  const gridSize = prompt("How many squares per side?");
+  for (let i = 0; i < gridSize; i++) {
+    const boxRow = document.createElement("div");
+    container.appendChild(boxRow);
+    boxRow.classList.add("box-row");
+    for (let j = 0; j < gridSize; j++) {
+      const box = document.createElement("div");
+      boxRow.appendChild(box);
+      box.classList.add("box");
+    }
+  }
+  changeColor("red");
+}
+
+function removeContainer() {
+  container.remove();
+}
+
+button.addEventListener("click", resetGrid);
 
 generateGrid();
 changeColor("red");
